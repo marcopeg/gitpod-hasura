@@ -2,7 +2,9 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - command: /workspace/hasura-gitpod/hasura-start.sh
+  - name: Hasura
+    command: /workspace/hasura-gitpod/hasura-start.sh
 
 ports:
+  - port: 8080
   - port: 5432
