@@ -1,5 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 
+tasks:
+  - command: /workspace/hasura-gitpod/hasura-start.sh
+
 ports:
   - port: 5432
