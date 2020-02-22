@@ -13,7 +13,7 @@ ENV PATH="$PATH:/usr/lib/postgresql/11/bin"
 ENV PGDATA="/workspace/.pg_ctl/data"
 RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/data ~/.pg_ctl/sockets \
  && initdb -D ~/.pg_ctl/data/ \
- && printf "#!/bin/bash\nmkdir -p /workspace/.pg_ctl\n[[ ! -d /workspace/.pg_ctl/data ]] && cp -R ~/.pg_ctl/data /workspace/.pg_ctl\npg_ctl -D /workspace.pg_ctl/data/ -l /workspace.pg_ctl/log -o \"-k /workspace.pg_ctl/sockets\" start\n" > ~/.pg_ctl/bin/pg_start \
+ && printf "#!/bin/bash\nmkdir -p /workspace/.pg_ctl\n[[ ! -d /workspace/.pg_ctl/data ]] && cp -R ~/.pg_ctl/data /workspace/.pg_ctl\npg_ctl -D /workspace/.pg_ctl/data/ -l /workspace/.pg_ctl/log -o \"-k /workspace/.pg_ctl/sockets\" start\n" > ~/.pg_ctl/bin/pg_start \
  && printf "#!/bin/bash\npg_ctl -D /workspace/.pg_ctl/data/ -l /workspace/.pg_ctl/log -o \"-k /workspace/.pg_ctl/sockets\" stop\n" > ~/.pg_ctl/bin/pg_stop \
  && chmod +x ~/.pg_ctl/bin/*
 ENV PATH="$PATH:$HOME/.pg_ctl/bin"
