@@ -3,18 +3,12 @@ set -e
 
 ###
 # Reconfigure Postgres
-mkdir -p /workspace/.pg_ctl
+# mkdir -p /workspace/.pg_ctl
 
-# if [ -d ~/.pg_ctl/data ]; then
-#    mv ~/.pg_ctl/data /workspace/.pg_ctl
-# fi
-
-# if [ -d ~/.pg_ctl/data ]; then
-#    mv ~/.pg_ctl/data /workspace/.pg_ctl
-# fi
+# # Copy postgres data from the home folder if not exists
+# [[ ! -d /workspace/.pg_ctl/data ]] && cp -R ~/.pg_ctl/data /workspace/.pg_ctl
 
 # if [[ $(pg_ctl status) == *"no server"* ]]; then
-#     echo "not running"
 #     pg_ctl -D /workspace/.pg_ctl/data/ -l /workspace/.pg_ctl/log -o "-k /home/gitpod/.pg_ctl/sockets" start
 # fi
 
