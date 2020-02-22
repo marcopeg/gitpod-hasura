@@ -26,7 +26,18 @@ ENV PGDATABASE="postgres"
 # PostgreSQL server is running, and if not starts it.
 RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$(pg_ctl status | grep PID) ]] || pg_start > /dev/null\n" >> ~/.bashrc
 
-###
-# Copy Hasura Engine
-COPY --from=hasura /bin/graphql-engine /bin/graphql-engine
 
+
+###
+# Install Hasura Engine
+COPY --from=hasura /bin/graphql-engine /bin/graphql-engine
+RUN mkdir -p ~/.hasura/bin \
+  && printf "#!/bin/bash\n/bin/graphql-engine serve" > ~/.hasura/bin/hasura_start \
+  && chmod +x ~/.hasura/bin/*
+
+ENV PATH="$PATH:$HOME/.hasura/bin"
+ENV HASURA_GRAPHQL_DATABASE_URL="postgres://localhost:5432/postgres"
+ENV HASURA_GRAPHQL_ENABLE_CONSOLE="true"
+#ENV HASURA_GRAPHQL_ADMIN_SECRET="hasura"
+
+#CMD hasura_start
