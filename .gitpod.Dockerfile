@@ -40,4 +40,4 @@ ENV HASURA_GRAPHQL_DATABASE_URL="postgres://localhost:5432/postgres"
 ENV HASURA_GRAPHQL_ENABLE_CONSOLE="true"
 #ENV HASURA_GRAPHQL_ADMIN_SECRET="hasura"
 
-RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$[[ ! $(lsof -i -P -n | grep 8080) == *"8080"* ]] && hasura_start\n" >> ~/.bashrc
+RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$[[ ! $(lsof -i -P -n | grep 8080) == *\"8080\"* ]] && hasura_start\n" >> ~/.bashrc
