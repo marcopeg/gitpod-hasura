@@ -40,4 +40,4 @@ ENV HASURA_GRAPHQL_DATABASE_URL="postgres://localhost:5432/postgres"
 ENV HASURA_GRAPHQL_ENABLE_CONSOLE="true"
 #ENV HASURA_GRAPHQL_ADMIN_SECRET="hasura"
 
-#CMD hasura_start
+CMD ["/bin/graphql-engine", "serve"]
