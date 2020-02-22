@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 # export HASURA_GRAPHQL_DATABASE_URL=postgres://localhost:5432/postgres
 # export HASURA_GRAPHQL_ENABLE_CONSOLE=true
@@ -8,3 +8,5 @@ set -e
 
 
 #[[ ! $(lsof -i -P -n | grep 8080) == *"8080"* ]] && hasura_start
+
+[[ ! $(lsof -i -P -n | grep 8080) == *"8080"* ]] && hasura_start
