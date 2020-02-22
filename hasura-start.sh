@@ -9,4 +9,4 @@
 
 #[[ ! $(lsof -i -P -n | grep 8080) == *"8080"* ]] && hasura_start
 
-[[ ! $(lsof -i -P -n | grep 8080) == *"8080"* ]] && hasura_start
+#[[ ! $(lsof -i -P -n | grep 8080) == *"8080"* ]] && hasura_start
