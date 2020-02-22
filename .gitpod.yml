@@ -3,7 +3,10 @@ image:
 
 tasks:
   - name: Hasura
-    command: /workspace/hasura-gitpod/hasura-start.sh
+    command: hasura_start
 
 ports:
+  - port: 5432
+    onOpen: ignore
   - port: 8080
+    onOpen: open-browser
