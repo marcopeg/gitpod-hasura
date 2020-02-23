@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: marcopeg/gitpod-workspace-hasura
 
 tasks:
   - name: Hasura
